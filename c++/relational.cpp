@@ -2,6 +2,7 @@
 using namespace std;
 int main(){
 	int A=30, B=50;
+
 	bool grater =A>B;
 	bool leasthan =A<B;
 	bool leasthanorequal=A<=B;
@@ -16,6 +17,12 @@ cout <<"leasthanorequal : "<<leasthanorequal<< endl;
 cout <<"graterthanorequal : "<<graterthanorequal<< endl;
 cout <<"equal : "<<equal<< endl;
 cout <<"notequal : "<<notequal<< endl;	
+
+
+bool logicaloperator= true &&false;
+cout <<"logicaloperator: "  <<logicaloperator;
+cout <<"logicaloperator: "  <<logicaloperator;
+
 	
 	return 0;
-}
+
