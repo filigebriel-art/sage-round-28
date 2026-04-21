@@ -7,7 +7,7 @@ int main (){
 	cout<<"enter second decimal";
 	cin>>d2;
 	multiple=d1*d2;
-	cout<<"sum:  "<<multiple;
+	cout<<"their multiple is:  "<<multiple;
 	return 0;
 	
 }
