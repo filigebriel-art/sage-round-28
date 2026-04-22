@@ -11,7 +11,7 @@ int main(){
 	}
 	
 	else{
-		cout<<"mino";
+		cout<<"minor";
 	}
 	
 	return 0;
