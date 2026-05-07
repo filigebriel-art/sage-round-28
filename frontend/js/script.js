@@ -65,7 +65,8 @@ score(40)
 
 //loop
 for(let i=0; i<5; i++){
-    console.log(i)}
+    console.log(i)
+}
 
     for(let j=3; j<=9; j++){
         console.log(j)
