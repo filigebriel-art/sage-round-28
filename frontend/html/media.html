@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>html media</title>
+
+    </head>
+    <body>
+        <img src="./0x0.webp" alt="car" width="700px">
+        <video controls autoplay muted width="700px" poster="./0x0.webp" >
+        <source src="./mov_bbb.mp4" type="video/mp4">
+    
+        </video>
+        <audio controls muted>
+            <source src="./horse.ogv">
+
+        </audio>
+        <iframe  width="700px" height="700px"  src="https://www.sageethiopia.com/" frameborder="0">
+
+        </iframe>
+      
+        <iframe width="420" height="315"
+src="https://www.youtube.com/embed/RDLjhCEhWiKXk">
+</iframe>
+<canvas id="mycanvas" width="400" height="200"></canvas>
+<script>
+    let c = document.getElementById("mycanvas");
+    let ctx= c.getContext("2d");
+    ctx.moveTo(50, 50);
+    ctx.lineTo(200, 100);
+    ctx.stroke();
+</script>
+<svg width="100" height="100">
+    <circle
+    cx="50"
+    cy="50"
+    r="40"
+    stroke="green"
+    stroke-width="4"
+    fill="yellow"
+    />
+
+    </body>
+</html>

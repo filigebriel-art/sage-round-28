@@ -1,0 +1,31 @@
+
+body{
+    background-image: url(./0x0.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1{
+    background-color: tomato;
+    color: white;
+    border: 4px solid aqua;
+    opacity: 1;
+    border-style: double dotted;
+    border-width: 6px 4px 8px 6px;
+    border-color: aqua blue;
+    text-align: center;
+    text-decoration: underline green double 5px ;
+    text-transform: uppercase;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+p{
+    color: white;
+    text-indent: 50px;
+    letter-spacing:5px ;
+    line-height: 1.8;
+    text-shadow: 2px 2px red;
+
+}
