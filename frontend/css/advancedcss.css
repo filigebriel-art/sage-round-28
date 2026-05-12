@@ -1,0 +1,54 @@
+
+
+a:link{
+    color: black;
+}
+a:visited{
+    color: blue;
+}
+
+
+a:hover{
+
+    color: aqua;
+
+}
+a:active{
+    color: brown;
+}
+
+.box{
+    background-color: aquamarine;
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+}
+.box:hover{
+    background-color: blueviolet;
+}
+.mainbox{
+    background-color: burlywood;
+}
+.mainbox .box:first-child{
+    background-color: blue;
+}
+.box:first-child:hover{
+    background-color: black;
+}
+p::first-line{
+    color: rgb(255, 30, 0);
+    font-size: large;
+}
+p::first-letter{
+    font-size: xx-large;
+}
+h1::before{
+    content: 'we are happy for you ';
+
+}
+h1::after{
+    content: ' 4';
+}
+p::selection{
+    background-color: blueviolet;
+}

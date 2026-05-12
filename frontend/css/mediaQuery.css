@@ -1,0 +1,14 @@
+body{
+    background-color: blueviolet;
+}
+/* for phone */
+@media screen and (max-width:600px) {
+    body{
+        background-color: brown;
+    }
+}
+@media screen and (min-width: 600px) and (max-width:1024px) {
+    body{
+        background-color: chartreuse;
+    }
+}
