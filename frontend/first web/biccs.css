@@ -1,0 +1,77 @@
+
+.body{
+    margin: 0px;
+}
+
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.bic{
+    color: aquamarine;
+    text-decoration: none;
+    margin: 0px;
+   
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    color: darkgray;
+    margin: 21px;
+}
+
+.home{
+    font-weight:lighter;
+    text-decoration: none;
+    color: rgb(31, 21, 21);
+}
+.butt5{
+    display: flex;
+    text-decoration: none;
+    gap: 10px;
+    color: darkgray;
+
+}
+.log{
+    display: flex;
+   gap: 10px;
+   align-items: center;
+    
+   
+    
+   
+}
+.login{
+    color: darkgray;
+    text-decoration: none;
+}
+.logbut{
+    padding: 5px;
+    background-color: aquamarine;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+}
+.boxsection{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    align-items: center;
+}
+.try{
+    display: flex;
+    flex-direction: row;
+
+}
+.free{
+    padding: 20px 30px;
+    background-color: #54BD95;
+    border-radius: 40px;
+    text-decoration: none;
+}

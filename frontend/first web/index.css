@@ -2,6 +2,7 @@
 body{
     margin: 0px;
     font-family: Arial, Helvetica, sans-serif;
+    
 
 }
 .herosection{
@@ -95,7 +96,7 @@ text-decoration: none;
 /* client */
 
 .client{
-    width: 1152px;
+    
     height: 98px;
     padding: 0px 144px;
     margin: 5px 144px;
@@ -125,7 +126,7 @@ text-decoration: none;
 }
 .mannage{
     height: 416px;
-    width: 1440px;
+    
     display: block;
     justify-content: center;
     align-items: center;
@@ -143,5 +144,10 @@ text-decoration: none;
     justify-content: space-between;
     padding: 0px 144px;
 
-    dis
+    
+}
+.unseen{
+    display: flex;
+    flex-direction: row;
+    padding: 0px 144px;
 }
