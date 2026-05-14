@@ -1,0 +1,76 @@
+h1{
+    background-color: blue;
+    color: white;
+    display: inline-block;
+    width: 500px;
+    height: 100px;
+    
+}
+a{
+    background-color: blueviolet;
+    display: block;
+    width: 400px;
+    height: 50px;
+    position: sticky;
+    top: 0px;
+    margin: 10px;
+
+}
+
+    
+
+
+.sub{
+    background-color: rgb(42, 165, 97);
+    width: 100px;
+    height: 100px;
+    position: relative;
+    z-index: 32;
+}
+.sub2{
+    background-color: black;
+    width: 100px;
+    height: 100px;
+    position: relative;
+     bottom: 50px;
+    left: 50px;
+    z-index: 2;
+    display: inline-block;
+    
+   
+}
+
+.sub3{
+    background-color: crimson;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    position:relative;
+    left: px;
+    z-index: 1;
+
+}
+.fix{
+    background-color: burlywood;
+    height: 500px;
+}
+.fix1{
+    background-color: darkblue;
+    width: 100px;
+    height: 100px;
+
+}
+.fix2{
+    background-color: cyan;
+    width: 100px;
+    height: 100px;
+}
+.fix3{
+    background-color: cornflowerblue;
+    width: 100px;
+    height: 100px;
+    display: relative;
+    position: fixed;
+    right: 0px;
+}
+

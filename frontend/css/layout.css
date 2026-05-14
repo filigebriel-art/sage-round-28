@@ -10,7 +10,7 @@ a{
     background-color: brown;
     display: block;
     width: 200PX;
-    position: sticky;
+    position:sticky;
     top: 0px;
      z-index: 1000; 
      margin: 5px;

@@ -5,16 +5,16 @@ body{
 
 }
 .herosection{
-    background-color: #FFFFFF;
+    background-color: #F5F7FA;
 }
 .headerbox{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
-    max-width: 1230px;
+    max-width: 1440px;
     height: 84px;
     margin: 0px auto;
-    background-color: #F5F7FA;
+    
 
 }
 .linkbox{
@@ -45,26 +45,103 @@ text-decoration: none;
     color: white;
      padding: 10px 20px;
      border-radius: 6px;
+     display: inline-block;
+
     
 }
 
 .herobox{
 
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 1440px;
-    height: 599px;
-    padding: 40px 100px;
-    background-color: #F5F7FA;
-    gap: 96px;
     
+    justify-content: center;
+    align-items: center;
+    max-width: 1440px;
+    min-height: 599px;
+    padding: 96px 144px;
+    background-color: #F5F7FA;
+    gap: 104px;
+    margin: 0px auto;
+}
+
+    
+
+.herotext{
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0px auto;
 }
 
 .herosubtext{
     color: #4CAF4F;
+    
 }
+.buttonhero{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF4F;
+    color: white;
+    padding: 14px 32px;
+   
+    font-size: 16px;
+}
+    
 .heroimage{
     width: 391px;
-    height: 407px;
+    height: 407;
+    
+}
+
+/* client */
+
+.client{
+    width: 1152px;
+    height: 98px;
+    padding: 0px 144px;
+    margin: 5px 144px;
+    justify-content: space-between;
+    text-align: center;
+}
+.subclient{
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    
+   
+}
+.h1client{
+    font-size: 36px;
+}
+
+.logo{
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: column;
+    text-align: center;
+
+
+}
+.mannage{
+    height: 416px;
+    width: 1440px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 40px;
+    margin: 80px;
+
+}
+.mannagetop{
+    text-align: center;
+}
+.manngebox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 144px;
+
+    dis
 }

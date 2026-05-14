@@ -1,36 +1,103 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>login page</title>
+<head>
+    <title>Fila</title>
+    <link rel="icon" type="image/x-icon" href="./ChatGPT Image May 10, 2026, 11_00_47 AM.ico">
 
-    </head>
-    <body>
-         <p>Fill the passenger </p>
-        <form method="get">
+</head>
+<style>
+    body{
+        font-family: Arial;
+            margin:0;
+            background:#f2f2f2;
+            text-align:center;
+            
+    }
+   header{
+    text-align: center;
+    background-color: blue;
+    color: white;
+   }
+   nav{
+    background-color: blue;
+    padding: 10px;
+   }
+   .container{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 40px;
+    box-shadow: 3px;
+   }
+
+</style>
+<body>
+    <header>
+        <h1>Fila study helper</h1>
+        <p>welcome to fila web</p>
        
-            <label for="first name">First name</label>
-            <input type="text" id="first name" name="first namae" required />
-            <label for="lastname">LastName</label>
-            <input for="lastName" id="lastName" name="lastName" required/>
-            <br>
-            <br>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email">
-           <label for="password">Password</label>
-           <input type="password" id="password" name="password" required/>
-           <br>
-           <label for="course">course</label>
-           <select name="course" id="course">
-            <option value="web  development">web</option>
-            <option value="accounting">acct</option>
-            <option value="mannegement">mgt</option>
-            <option value="construction">cons</option>
-           </select>
+    </header>
+<nav>
+    <a href="#">Home</a>
+    <a href="#">tools</a>
+    <a href="#">video</a>
+    <a href="#">About</a>
+</nav>
 
+<h1>welcome students</h1>
+ <h3>start Learning</h4>
 
 <br>
-        <button >submit</button>
-        <button>reset</button>
-        </form>
-    </body>
+<h3>study tools</h3>
+<div class="container">
+    <div class="butt">
+        <h4>calculator</h4>
+       <p>learn about calculator
+
+       </p>
+    </div>
+    <div class="butt">
+    <h4>pattern</h4>
+    <p>learn about pattern</p>
+
+
+    </div>
+    <div class="butt">
+        <h4>mutiplication table</h4>
+        <p>learn about multiplication table</p>
+
+    </div>
+
+</div>
+    <div class="video">
+        <h3>study with video</h3>
+        <video controls autoplay >
+            <source src="./mov_bbb.mp4" type="video/mp4">
+
+        </video>
+
+    </div>
+    <div class="embed">
+        <h3>youtube tutorial</h3>
+        <iframe src="youtube.com" frameborder="0"></iframe>
+
+    </div>
+    <div class="relax">
+        <h3>Relaxung music study</h3>
+        <audio controls>
+        <source src="./horse.ogv">
+
+        </audio>
+
+    </div>
+    <footer>
+        <p>© 2026 FILA Students Study Helper</p>
+    </footer>
+
+
+
+
+</body>
 </html>
