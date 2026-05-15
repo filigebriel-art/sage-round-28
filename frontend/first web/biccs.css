@@ -208,3 +208,14 @@ p{
     display: flex;
     flex-direction: row;
 }
+/*      benefit */
+.benwithicon{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.ico{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
