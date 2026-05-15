@@ -149,5 +149,20 @@ text-decoration: none;
 .unseen{
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center ;
+
     padding: 0px 144px;
+}
+.help{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+.hicon{
+    display: flex;
+    flex-direction: row ;
+    justify-content:space-evenly;
+    gap: 100px;
 }

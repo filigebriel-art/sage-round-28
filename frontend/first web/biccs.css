@@ -2,6 +2,9 @@
 .body{
     margin: 0px;
 }
+p{
+    color: #A6A6A6;
+}
 
 
 .header{
@@ -10,7 +13,7 @@
     justify-content: space-around;
 }
 .bic{
-    color: aquamarine;
+    color: #52BD94;
     text-decoration: none;
     margin: 0px;
    
@@ -52,7 +55,7 @@
 }
 .logbut{
     padding: 5px;
-    background-color: aquamarine;
+    background-color: #52BD94;
     color: white;
     text-decoration: none;
     border-radius: 6px;
@@ -61,17 +64,147 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
     align-items: center;
 }
 .try{
     display: flex;
     flex-direction: row;
+    gap: 10px;
+
 
 }
 .free{
     padding: 20px 30px;
     background-color: #54BD95;
+    color: white;
     border-radius: 40px;
     text-decoration: none;
+    
+}
+.free a{
+    color: white;
+    text-decoration: none;
+}
+.play{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    text-decoration: none;
+}
+.play a{
+    color: black;
+    text-decoration: none;
+
+}
+.more{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: center;
+   
+}
+ 
+.icons{
+    
+    display: flex;
+    flex: row;
+    justify-content:center;
+    align-items: center;
+    gap:100px ;
+    margin: 10px;
+    
+}
+.icons a{
+    text-decoration: none;
+    align-items: center;
+    color:#A6A6A6 ;
+    gap: 5px;
+}
+.icon{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+    
+.star{
+    display: flex;
+    flex: row;
+    gap: 100px;
+}
+.star p{
+    font-weight: 200pxS;
+}
+
+/*                support and publish */
+.support{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:100px ;
+
+}
+.publish{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    
+
+    
+
+    
+    
+}
+.pub{
+    display: flex;
+    flex-direction: row;
+    align-items:baseline;
+    gap: 10px;
+    
+}
+.pubtext{
+    display: flex;
+    flex-direction: column;
+    
+    
+
+
+}
+.anatic{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
+}
+.engage{
+    display: flex;
+    flex-direction:row ;
+    align-items:baseline;
+    gap: 10px;
+}
+.features{
+    display: flex;
+    flex: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.featurewithbutton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 100px;
+
+
+}
+
+
+.featureswithimage{
+    display: flex;
+    flex-direction: row;
 }
