@@ -125,3 +125,110 @@ switch(day){
         console.log("sun")
         break
 }
+document.getElementById('title').style.color='blue';
+
+
+const numbers=[33,44,55,6,8]
+for(let n of numbers){
+}
+    console.log(numbers[2])
+
+    const pc={brand:"hp",model:"elite",storage:"500GB"}
+    for(let key in pc){
+         console.log((key +" :"+ pc[key]))
+       
+    }
+    // object with array 
+    const students=[{id:1 , name:"blen", gender:"F"},
+                {id:2 , name:"seada", gender:"F"},
+                  {id:3 , name:"kbreab", gender:"M"}
+                ]
+                console.log(students[0].name)
+
+    const student={
+        id:1,
+        name:"blen" , 
+        gender:"F",
+        hobby:["sport","music" ,"art"]  
+     }
+    
+    console.log(student.hobby)
+    const campany={
+        name:"sage",
+        address:{
+            country:"Ethiopia",
+            city:"A.A",
+            place:"piasa",
+            building:"eliana"      
+        }
+
+    }
+    console.log(campany.address.country)
+
+    students.forEach(function(s){
+        console.log(s.name)
+    })
+    document.querySelector(".click").innerText="this is changed with javascript"
+
+    const newDiv=document.createElement("div")
+    newDiv.innerText="hello this s second text"
+    console.log(newDiv)
+   
+
+    
+    document.getElementById("add").addEventListener("click",function(){
+        document.body.appendChild(newDiv)
+    })
+    
+    document.getElementById("remove").addEventListener("click",function(){
+        newDiv.remove()
+    })
+
+
+
+    let toggle=false;
+    document.getElementById("toggle").addEventListener("click",function(){
+        if(toggle==false){
+            document.body.appendChild(newDiv)
+            toggle=true
+        }
+        else{
+            newDiv.remove()
+            toggle=false
+        }
+    });
+
+    
+    let counter=0
+    document.getElementById("incre").addEventListener("click",function(){
+        counter=counter+1
+        document.getElementById("counter").innerText=counter
+    })
+    document.getElementById("decre").addEventListener("click",function(){
+        counter=counter-1
+        document.getElementById("counter").innerText=counter
+    })
+    document.getElementById("reset").addEventListener("click",function(){
+        counter=0
+        document.getElementById("counter").innerText=counter
+    })
+
+
+     let power=false
+     document.getElementById("power").addEventListener("click",function(){
+        if(power==false){
+           document.getElementById("off").innerText="on"
+            power=true
+        }
+        else{
+            document.getElementById("off").innerText="off"
+            power=false
+        }
+     })
+
+
+       let answer=true
+       document.getElementById("answer").addEventListener("click",function(){
+        answer=!answer
+         document.getElementById("me").innerText=answer?"true":"false"
+       })

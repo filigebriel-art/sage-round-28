@@ -1,0 +1,168 @@
+
+body{
+    margin: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+    
+
+}
+.herosection{
+    background-color: #F5F7FA;
+}
+.headerbox{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    max-width: 1440px;
+    height: 84px;
+    margin: 0px auto;
+    
+
+}
+.linkbox{
+    display: flex;
+    gap: 50px;
+}
+.link{
+    text-decoration: none;
+    color: #4D4D4D;
+}
+.buttonbox{
+    display: flex;
+    gap: 14px;
+    
+   
+
+}
+.textbutton{
+    color: #4CAF4F;
+text-decoration: none;
+ padding: 10px 20px;
+  
+
+}
+.button{
+    text-decoration: none;
+    background-color: #4CAF4F;
+    color: white;
+     padding: 10px 20px;
+     border-radius: 6px;
+     display: inline-block;
+
+    
+}
+
+.herobox{
+
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    max-width: 1440px;
+    min-height: 599px;
+    padding: 96px 144px;
+    background-color: #F5F7FA;
+    gap: 104px;
+    margin: 0px auto;
+}
+
+    
+
+.herotext{
+    font-size: 64px;
+    font-weight: bold;
+    margin: 0px auto;
+}
+
+.herosubtext{
+    color: #4CAF4F;
+    
+}
+.buttonhero{
+    display: inline-block;
+    text-decoration: none;
+    background-color: #4CAF4F;
+    color: white;
+    padding: 14px 32px;
+   
+    font-size: 16px;
+}
+    
+.heroimage{
+    width: 391px;
+    height: 407;
+    
+}
+
+/* client */
+
+.client{
+    
+    height: 98px;
+    padding: 0px 144px;
+    margin: 5px 144px;
+    justify-content: space-between;
+    text-align: center;
+}
+.subclient{
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    
+   
+}
+.h1client{
+    font-size: 36px;
+}
+
+.logo{
+    display: flex;
+    
+    justify-content: space-between;
+    align-items: column;
+    text-align: center;
+
+
+}
+.mannage{
+    height: 416px;
+    
+    display: block;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 40px;
+    margin: 80px;
+
+}
+.mannagetop{
+    text-align: center;
+}
+.manngebox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0px 144px;
+
+    
+}
+.unseen{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center ;
+
+    padding: 0px 144px;
+}
+.help{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    
+}
+.hicon{
+    display: flex;
+    flex-direction: row ;
+    justify-content:space-evenly;
+    gap: 100px;
+}

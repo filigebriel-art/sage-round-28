@@ -76,5 +76,10 @@ while(i<5){
     console.log(i)
     i++
 }
+
+
+let title= document.getElementById('title');
+title.innerText="happy for learning my favorite career"
+
 let title =document.getElementById('title');
 title.innerText="This is text from javascript"

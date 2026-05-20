@@ -1,36 +1,36 @@
-function externalAlert(){
-    alert("external")
-}
+document.getElementById('title').innerHTML="sounds good"
+document.getElementById('title').style.color="blue"
 
-//variables
-let name="ababa"
-console.log(name)
-let fruts=[ "papaya","apple","mango"]
-    console.log(fruts)
-    console.log(fruts[0])
-    fruts[0]="carrot"
-    console.log(fruts)
-function sum(x,y){
-    console.log(x+y)
-}
-function multiplication(x,y){
-    console.log(x*y)
-}
+document.getElementById('btn').addEventListener('click',function(){
+    document.getElementById('image').src='./image2.png'
+})
 
-sum(59,30)
-multiplication(4,3)
 
-function average(x,y){
-    console.log((x+y)/2)
-}
-average(20,30)
 
-for (let i=0; i<10; i++){
-    console.log(i)
-}
+const person1 = {
+    firstname:"abebe",
+    lastname:"belay",
+    age:22,
+    gender:'m',
+    fullName:function(){
+       return this.firstname +" "+ this.lastname
+    }
 
-let x=0
-while(x<5){
-    console.log(x)
-    x++
+
 }
+const person2={
+    firstname:"kebede",lastname:"asnake",age:33,gender:"M",
+    fullName:function(){
+        return this.firstname +""+this.lastname
+    },
+
+    eat:function(){
+        return "eating..."
+    }
+}
+console.log(person1.fullName())
+console.log(person2.eat())
+
+
+let fullName="belay alemayehu"
+console.log(fullName.toUpperCase())

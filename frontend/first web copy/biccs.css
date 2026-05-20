@@ -208,110 +208,14 @@ p{
     display: flex;
     flex-direction: row;
 }
-
-
-             /*      benefit */
-
-
-
-
-.benefitbox{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    
-    
-    
-    
-    gap: 50px;
-    
-    
-}
-
+/*      benefit */
 .benwithicon{
     display: flex;
     flex-direction: column;
-    
     gap: 20px;
 }
 .ico{
     display: flex;
     flex-direction: row;
-    size: 10px;
     gap: 10px;
-}
-.benefit1{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-}
-
-
-.benefit2{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    bottom: 300px;
-
-    
-}
-
-.r1{
-    position: relative;
-    left: 200px;
-    top: 500px;
-      
-}
-.r2{
-    position: relative;
-    bottom: 50px;
-    
-
-
-}
-.r3{
-    position: relative;
-    top: 80px;
-    left: 50px;
-
-}
-.r4{
-    position: relative;
-    top: 250px;
-    left: 25px;
-
-}
-
-.choosebox{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: 10px;
-}
-
-.choosebtn{
-    background-color: rgb(240, 232, 232);
-    max-width: 340px;
-    max-height: 70px;
-    
-    
-}
-.bil{
-    text-decoration: none;
-    color: black;
-}
-.bilbold{
-    background-color: #52BD94;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.tables{
-    display: flex;
-    flex-direction: row;
 }
