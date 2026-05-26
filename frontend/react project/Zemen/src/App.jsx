@@ -1,21 +1,18 @@
-import{useState}from "react"
+import{useEffect,useState}from "react"
 
 import Switch from "./Switch"
-import Garage from "./Garage"
-import List from "./LIst"
+import Effect from "./Effect"
+import Effect2 from "./Effect2"
 export default function App(){
-const [counter,setCounter]=useState(0)
-
+useEffect(()=>{
+   console.log("changes from app component")
+})
 return<>
-   <h1>{counter}</h1>
-   <button onClick={()=>{setCounter(counter+1)}}>Add</button>
-   <button onClick={()=>{setCounter(counter-1)}}>Substract</button>
-   <button onClick={()=>{setCounter(counter*counter)}}>product</button>
-   <button onClick={()=>setCounter(0)}>Reset</button>
+  
    
     
    <Switch/>
-   <Garage cars={["byd","toyota","bmw"]}/>
-   <List/>
+   <Effect2/>
+   <Effect/>
 </>
 }

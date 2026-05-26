@@ -9,11 +9,9 @@ return<>
 <button onClick={()=>setTurn(true)}>ON</button>
 <button onClick={()=>setTurn(false)}>OFF</button>
 
-<div>
-    <h1>{status}</h1>
-    <button onClick={()=>setStatus("ON")}>on</button>
-    <button onClick={()=>setStatus("off")}>off</button>
-</div>
+
+   
+
 
     </>
 }
