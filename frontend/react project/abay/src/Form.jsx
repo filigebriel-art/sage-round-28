@@ -12,23 +12,41 @@ export default function Form(){
     const [age,setAge]=useState("")
     const [date,setDate]=useState("")
     const [country,setCountry]=useState("")
-    const [hobby,setHobby]=useState("")
+    const [hobby,setHobby]=useState([])
 
-function handlesubmit(e){
+function handleSubmit(e){
     e.preventDefault()
-    alert(`your fullname is: ${fullname}
-          Email : ${email}
-           ${password}
-          Gender : ${gender}
-          Age : ${age}
-          Country :${country}
-          Hobby : ${hobby}
-          Date :${date}
+    alert(`
+        fullname: ${fullname}
+        Email :   ${email}
+        password: ${password}
+        Gender :  ${gender}
+        Age :     ${age}
+        Country : ${country}
+        Hobby :   ${hobby}
+        Date :    ${date}
          `)
+       
+}
+
+
+
+
+
+
+
+function handleHobby(e){
+    // e.target.Checked? setHobby(e.target.name): setHobby("")
+
+    if(e.target.checked){
+        setHobby((prev)=>([...prev,e.target.name]))
+    }else{
+        setHobby((prev)=>prev.filter((v)=>(v!=e.target.name)))
+    }
 }
 return<>
-<h1>my form</h1>
-<form onSubmit={handlesubmit}>
+<h1>My Form</h1>
+<form onSubmit={handleSubmit}>
      <label htmlFor="fullname">FullName</label>
      <input 
           type="text" 
@@ -80,7 +98,7 @@ return<>
             <br />
 
     <label htmlFor="country">Country</label>
-     <select name="counrty" id="country"
+     <select name="country" id="country"
      value={country}
      onChange={(e)=>setCountry(e.target.value)}>
         <option value="ethiopia">Ethiopia</option>
@@ -94,21 +112,27 @@ return<>
      <label htmlFor="sport">Sport</label>
      <input type="checkbox"
      id="sport"
-     value="sport"
-     onChange={(e)=>setHobby(e.target.value)} />
-     <label htmlFor="music">Music</label>
+     name="sport"
+     value={hobby}
+     onChange={handleHobby} />
+
+
+      <label htmlFor="music">Music</label>
      <input type="checkbox"
      
      id="music"
-     value="music"
-     onChange={(e)=>setHobby(e.target.value)} />
+     name="music"
+     value={hobby}
+     onChange={handleHobby} />
      <label htmlFor="art">Art</label>
      <input type="checkbox"
      
      id="art"
-     value="art"
-     onChange={(e)=>setHobby(e.target.value)} />
+     name="art"
+     value={hobby}
+     onChange={handleHobby} />
 
+    
      <br />
      <br />
 
