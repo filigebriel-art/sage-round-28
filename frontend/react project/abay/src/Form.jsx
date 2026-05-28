@@ -1,30 +1,132 @@
+
+import"./Form.css"
+
 import { useState } from "react";
 
 export default function Form(){
 
-const [fullname, setFullName]=useState("")
+    const [fullname, setFullName]=useState("")
+    const [email,setEmail]=useState("")
+    const [password,setPassword]=useState("")
+    const [gender,setGender]=useState("")
+    const [age,setAge]=useState("")
+    const [date,setDate]=useState("")
+    const [country,setCountry]=useState("")
+    const [hobby,setHobby]=useState("")
+
 function handlesubmit(e){
     e.preventDefault()
-    alert("your full name is ${fullname}")
+    alert(`your fullname is: ${fullname}
+          Email : ${email}
+           ${password}
+          Gender : ${gender}
+          Age : ${age}
+          Country :${country}
+          Hobby : ${hobby}
+          Date :${date}
+         `)
 }
 return<>
 <h1>my form</h1>
-<form action="">
+<form onSubmit={handlesubmit}>
      <label htmlFor="fullname">FullName</label>
      <input 
           type="text" 
           id="fullname" 
           placeholder="Enter your fullname"
           value={fullname}
-          onChange={(e)=>{e.target.value}}
+          onChange={(e)=>setFullName(e.target.value)}
           
           
           />
+          <br />
+          <br />
+
+      <label htmlFor="email">Email</label>
+      <input type="email"
+             id="email" 
+             placeholder="enter your password"
+             value={email}
+             onChange={(e)=>setEmail(e.target.value)}
+             
+             />
+             <br />
+             <br />
+             <label htmlFor="password">password</label>
+             <input type="password"
+             id="password"
+             placeholder="enter your password"
+             value={password} 
+             onChange={(e)=>setPassword(e.target.value)}/>
+             <br />
+             <br />
+             <p>select Gender</p>
+    <label htmlFor="male">Male</label>
+    <input type="radio" id="male" name="gender"value="male" onChange={(e)=>setGender(e.target.value)}/>
+    <label htmlFor="female">Female</label>
+    <input type="radio"  id="female"name="gender" value="female" onChange={(e)=>setGender(e.target.value)} />
+    <br />
+    <br />
+
+
+    <label htmlFor="age" id="age">Age</label>
+    <input type="number"
+            id="age"
+            min="10"
+            max="99"
+            value={age} 
+            onChange={(e)=>setAge(e.target.value)  }/>
+            <br />
+            <br />
+
+    <label htmlFor="country">Country</label>
+     <select name="counrty" id="country"
+     value={country}
+     onChange={(e)=>setCountry(e.target.value)}>
+        <option value="ethiopia">Ethiopia</option>
+        <option value="USA">America</option>
+        <option value="kenya">Kenya</option>
+        <option value="UAE">Dubai</option>
+     </select>
+     <br />
+     <br />
+     <p>Choose your Hobby</p>
+     <label htmlFor="sport">Sport</label>
+     <input type="checkbox"
+     id="sport"
+     value="sport"
+     onChange={(e)=>setHobby(e.target.value)} />
+     <label htmlFor="music">Music</label>
+     <input type="checkbox"
+     
+     id="music"
+     value="music"
+     onChange={(e)=>setHobby(e.target.value)} />
+     <label htmlFor="art">Art</label>
+     <input type="checkbox"
+     
+     id="art"
+     value="art"
+     onChange={(e)=>setHobby(e.target.value)} />
+
+     <br />
+     <br />
 
 
 
 
-    <button type="submit">submit</button>
+
+
+
+            <input type="date" id="date"
+            value={date}
+            onChange={(e)=>setDate(e.target.value)}/>
+            <br />
+            <br />
+            <br />
+
+
+    <button type="submit" id="submit">submit</button>
 
 
 
