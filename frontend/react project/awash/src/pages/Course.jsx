@@ -5,9 +5,11 @@ export default function Course(){
     return<>
     <br />
     <br />
-    <Link to="/English">English</Link><br />
-    <Link to="/Maths">Maths</Link><br />
-    <Link to="/Biology">Biology</Link><br />
-    <Link to="/Physics">physics</Link>
+    <div className="courses">
+    <Link to="/Course/English">English</Link><br />
+    <Link to="/Course/Maths">Maths</Link><br />
+    <Link to="/Course/Biology">Biology</Link><br />
+    <Link to="/Course/Physics">physics</Link>
+    </div>
     </>
 }

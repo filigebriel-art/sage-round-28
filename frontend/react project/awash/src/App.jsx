@@ -6,6 +6,7 @@ import Contact from "./pages/Contact"
 import Layout from "./pages/Layout"
 import Course from "./pages/Course"
 import CoursesDetail from "./pages/CoursesDetail"
+import NotFound from "./pages/NotFound"
 
 export default function App(){
   return<BrowserRouter>
@@ -16,8 +17,9 @@ export default function App(){
       <Route  path="About"element={<About/>}/>
       <Route  path="Contact" element={<Contact/>}/>
       <Route  path="Course" element={<Course/>}/>
-      <Route  path="Course/:name" element={<CoursesDetail/>}/>
+      <Route  path="/Course/:name" element={<CoursesDetail/>}/>
       </Route>
+      <Route path="*" element={<NotFound/>}/>
       </Routes> 
   </BrowserRouter>
 }
