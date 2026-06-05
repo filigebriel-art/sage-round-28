@@ -8,8 +8,8 @@ export default function App(){
   const dispatch=useDispatch()
   return<>
   <h1>{count}</h1>
-  <button onClick={()=>dispatch(increament())}>Increament</button>
-  <button onClick={()=>dispatch(decreament())}>Decreament</button>
+  <button onClick={()=>dispatch(increament())}>Increment</button>
+  <button onClick={()=>dispatch(decreament())}>Decrement</button>
   <button onClick={()=>dispatch(reset())}>Reset</button>
   
   </>

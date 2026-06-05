@@ -13,3 +13,6 @@ const counterSlice=createSlice({
 
 export const {increament,decreament,reset}=counterSlice.actions;
 export default counterSlice.reducer
+
+
+

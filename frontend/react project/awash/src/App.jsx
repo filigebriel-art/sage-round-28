@@ -7,17 +7,20 @@ import Layout from "./pages/Layout"
 import Course from "./pages/Course"
 import CoursesDetail from "./pages/CoursesDetail"
 import NotFound from "./pages/NotFound"
+import Counter from "./Counter"
 
 export default function App(){
   return<BrowserRouter>
      <Routes>
-
       <Route  path="/" element={<Layout/>}>
       <Route index element={<Home/>}/>
+
       <Route  path="About"element={<About/>}/>
       <Route  path="Contact" element={<Contact/>}/>
       <Route  path="Course" element={<Course/>}/>
       <Route  path="/Course/:name" element={<CoursesDetail/>}/>
+      <Counter/>
+
       </Route>
       <Route path="*" element={<NotFound/>}/>
       </Routes> 

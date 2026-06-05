@@ -1,4 +1,7 @@
 export default function Register(){
-    return<>
-    </>
+    return(
+    <div>
+        <h1>Register Page</h1>
+    </div>
+    )
 }
