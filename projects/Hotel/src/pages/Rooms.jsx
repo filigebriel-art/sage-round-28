@@ -3,7 +3,7 @@ import RoomCard from "../components/RoomCard"
 import rooms from "../data/rooms"
 
 
-export default function Room(){
+export default function Rooms(){
     return(
     <div className="rooms-pages">
     <h1>Our Rooms</h1>

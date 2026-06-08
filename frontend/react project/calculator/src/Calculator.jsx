@@ -1,6 +1,6 @@
 import { evaluate } from "mathjs"
 import { useState } from "react"
-
+import  "./calculator.css"
 
 function Calculator(){
 
@@ -24,13 +24,14 @@ function Calculator(){
 
     
     return(
-    <div>
+    <div className="calculator">
     
 <input type="text"
 value={input}
 readOnly
  />
  <br /><br />
+     <div className="buttons">
 
     <button onClick={()=>addValue("1")}>1</button>
     <button onClick={()=>addValue("2")}>2</button>
@@ -53,6 +54,7 @@ readOnly
     <button onClick={()=>addValue("/")}>/</button>
     <button onClick={calculate}>=</button>
     <button onClick={clearInput}>c</button>
+    </div>
     </div>
 
 )}

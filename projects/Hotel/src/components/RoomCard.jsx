@@ -11,6 +11,7 @@ export default function RoomCard({id,name,price,image}){
 
         <p>${price} / Night</p>
         <button>Book Now</button>
+        <p>{image}</p>
 
     </div>
     </Link>
