@@ -1,0 +1,65 @@
+import { ScrollView, Text, View } from "react-native";
+
+export default function DetailScreen(){
+    return <View style={{
+        flex:1
+    }}>
+        <ScrollView>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        <Text>DetailScreen</Text>
+        </ScrollView>
+    </View>
+}
