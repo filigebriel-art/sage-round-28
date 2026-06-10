@@ -8,6 +8,7 @@ import Register from "./pages/Regjster";
 import Booking from "./pages/Booking";
 import MyBookings from "./pages/MyBookings";
 import Admin from "./pages/Admin";
+import Bookings from "./pages/Bookings";
 
 export default function App(){
   return(
@@ -32,6 +33,7 @@ export default function App(){
       <Route path="my-bookings" element={<MyBookings/>} />
 
       <Route path="admin" element={<Admin/>}/>
+      <Route path="/bookings" element={<Bookings/>}/>
     </Route>
 
 

@@ -12,14 +12,27 @@ export default function Booking(){
 
     function handleBooking(e){
         e.preventDefault();
-        alert(`
-            Guests:${guests}
-            Name:${name}
-            Email:${email}
-            Check In:${checkIn}
-            Chack Out:${checkOut}
-            Room ID: ${id}
-            `);
+        const booking={
+            id:Date.now(),
+            roomId:id,
+            guests,
+            name,
+            email,
+            checkIn,
+            checkOut,
+        };
+        const existingBookings=
+        JSON.parse(localStorage.getItem("bookings")) ||[];
+
+        localStorage.setItem(
+            "bookings",
+            JSON.stringify([...existingBookings,booking])
+        );
+
+        console.log(
+            JSON.parse(localStorage.getItem("bookings"))
+        )
+        alert("Booking Successful!");
     }
     return(
     <div >
