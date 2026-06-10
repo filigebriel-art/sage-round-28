@@ -1,64 +1,175 @@
- 
-
 import { useState } from "react";
 import roomsData from "../data/rooms";
+import "../css/Admin.css";
 
- export default function Admin(){
-    const[rooms, setRooms]=useState(roomsData);
-    const[roomName,setRoomName]=useState("")
-    const[price, setPrice]=useState("")
+export default function Admin() {
+  const [rooms, setRooms] = useState(roomsData);
 
-    const [image,setImage]=useState("")
-   function addRoom(){
-    const  newRoom={
-        id:Date.now(),
-        name:roomName,
-        price:Number(price),
-        image:image
-        
-    }
-       setRooms([...rooms, newRoom])
-       setRoomName("")
-       setPrice("")
-   }
+  const [roomName, setRoomName] = useState("");
+  const [price, setPrice] = useState("");
+  const [image, setImage] = useState("");
 
-    function deleteRoom(id){
-        setRooms(
-            rooms.filter((room)=>room.id!==id)
-        )
+  const [editingId, setEditingId] = useState(null);
+  const [editName, setEditName] = useState("");
+  const [editPrice, setEditPrice] = useState("");
+  const [editImage, setEditImage] = useState("");
+
+  function addRoom() {
+    if (!roomName || !price || !image) {
+      alert("Please fill all fields");
+      return;
     }
 
-    return(
-        <div>
-            <h1>Admin Dashboard</h1>
-            {rooms.map((room)=>(
-                <div className="admin-room" key={room.id}>
-                    <h3>{room.name}</h3>
-                    <p>${room.price}</p>
-                    <button onClick={()=>deleteRoom(room.id)}>Delete</button>
-                </div>
-            ))}
-        <h2>Add New Room</h2>
+    const newRoom = {
+      id: Date.now(),
+      name: roomName,
+      price: Number(price),
+      image: image,
+    };
 
-         <input type="text"
-          placeholder="image URL" 
-          value={image}
-          onChange={(e)=>setImage(e.target.value)}/>
+    setRooms([...rooms, newRoom]);
 
-          
+    setRoomName("");
+    setPrice("");
+    setImage("");
+  }
+
+  function deleteRoom(id) {
+    setRooms(
+      rooms.filter((room) => room.id !== id)
+    );
+  }
+
+  function editRoom(room) {
+    console.log("Room selected",room)
+    setEditingId(room);
+
+    setEditName(room.name);
+    setEditPrice(room.price);
+    setEditImage(room.image);
+  }
+
+  function updateRoom() {
+    const updatedRooms = rooms.map((room) => {
+      if (room.id === editingId) {
+        return {
+          ...room,
+          name: editName,
+          price: Number(editPrice),
+          image: editImage,
+        };
+      }
+
+      return room;
+    });
+    console.log(updatedRooms)
+    setRooms(updatedRooms);
+
+    setEditingId(null);
+    setEditName("");
+    setEditPrice("");
+    setEditImage("");
+  }
+
+  return (
+    <>
+      {editingId !==null && (
+        <div className="edit-form">
+          <h2>Edit Room</h2>
+
           <input
-          type="text"
-          placeholder="Room Name"
-          value={roomName}
-          onChange={(e)=>setRoomName(e.target.value)}
+            type="text"
+            value={editImage}
+            onChange={(e) => setEditImage(e.target.value)}
+            placeholder="Image URL"
           />
 
-          <input type="number"
-          placeholder="price"
-          value={price} 
-          onChange={(e)=>setPrice(e.target.value)}/>
+          <input
+            type="text"
+            value={editName}
+            onChange={(e) => setEditName(e.target.value)}
+            placeholder="Room Name"
+          />
 
-          <button onClick={addRoom}>Add Room</button>
+          <input
+            type="number"
+            value={editPrice}
+            onChange={(e) => setEditPrice(e.target.value)}
+            placeholder="Price"
+          />
+
+          <button onClick={updateRoom}>
+            Save Changes
+          </button>
         </div>
-    )
- }
+      )}
+
+      <div className="admin-container">
+        <h1>Admin Dashboard</h1>
+
+        <div className="add-room-form">
+          <h2>Add New Room</h2>
+
+          <input
+            type="text"
+            placeholder="Image URL"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+          />
+
+          <input
+            type="text"
+            placeholder="Room Name"
+            value={roomName}
+            onChange={(e) => setRoomName(e.target.value)}
+          />
+
+          <input
+            type="number"
+            placeholder="Price"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+          />
+
+          <button onClick={addRoom}>
+            Add Room
+          </button>
+        </div>
+
+        <div className="rooms-grid">
+          {rooms.map((room) => (
+            <div className="admin-room" key={room.id}>
+              <img
+                src={room.image}
+                alt={room.name}
+                className="admin-room-image"
+              />
+
+              <h3>{room.name}</h3>
+
+              <p>${room.price} / Night</p>
+
+              <div className="admin-buttons">
+                <button
+                  className="edit-btn"
+                  onClick={() =>editRoom(room)
+
+                  }
+                >
+                  Edit
+                </button>
+
+                <button
+                  className="delete-btn"
+                  onClick={() => deleteRoom(room.id)}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
+  );
+}
