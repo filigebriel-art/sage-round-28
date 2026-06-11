@@ -1,4 +1,4 @@
-import {Link}
+
 export default function Navbar(){
     return(
         <div className="navbar">
@@ -9,6 +9,7 @@ export default function Navbar(){
                 </li>
                 <li>Rooms</li>
                 <li>Login</li>
+                <li>About</li>
             </ul>
         </div>
     )
