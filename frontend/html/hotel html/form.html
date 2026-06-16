@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Hotel Management System | Group 1 Proposal</title>
+    <!-- Google Fonts for clean typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (Free Icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f4f7fc;
+            color: #1a2c3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        /* Custom container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header / Hero Section with luxury hotel vibe */
+        .hero {
+            background: linear-gradient(135deg, #0B2B40 0%, #1A4A5F 100%);
+            color: white;
+            padding: 3rem 0 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "🏨";
+            font-size: 180px;
+            opacity: 0.05;
+            position: absolute;
+            bottom: -30px;
+            right: 20px;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .group-badge {
+            background: rgba(255,255,255,0.15);
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+            margin-bottom: 1rem;
+        }
+
+        /* Navigation cards / quick stats */
+        .nav-strip {
+            background: white;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border-radius: 30px;
+            margin-top: -2rem;
+            position: relative;
+            z-index: 5;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-strip a {
+            text-decoration: none;
+            color: #1A4A5F;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+        }
+
+        .nav-strip a:hover {
+            background: #eef2f6;
+            color: #0d3b4f;
+        }
+
+        /* Cards and UI */
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 2.5rem 0 1.2rem 0;
+            color: #0B2B40;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: #E0A82B;
+            border-radius: 3px;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 1.6rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            color: #E0A82B;
+            margin-bottom: 1rem;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+            color: #1A4A5F;
+        }
+
+        .badge {
+            background: #eef2fa;
+            padding: 0.2rem 0.7rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+            color: #1A4A5F;
+        }
+
+        /* timeline table style */
+        .timeline-wrapper {
+            background: white;
+            border-radius: 28px;
+            overflow-x: auto;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 550px;
+        }
+
+        .timeline-table th, .timeline-table td {
+            padding: 1rem 0.8rem;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .timeline-table th {
+            background: #f8fafc;
+            font-weight: 700;
+            color: #0B2B40;
+        }
+
+        .check {
+            color: #15803d;
+            font-weight: bold;
+            background: #e0f2e7;
+            display: inline-block;
+            width: 28px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin: 1rem 0;
+        }
+
+        .tech-item {
+            background: #eef2ff;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            color: #1e3a8a;
+        }
+
+        footer {
+            background: #0f2c38;
+            color: #cddfe6;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .btn-outline-light {
+            border: 1px solid #ffffff80;
+            background: transparent;
+            padding: 0.5rem 1.2rem;
+            border-radius: 40px;
+            color: white;
+            font-weight: 500;
+            transition: 0.2s;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .btn-outline-light:hover {
+            background: white;
+            color: #1A4A5F;
+        }
+
+        /* list styles */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .styled-list li {
+            margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .styled-list li i {
+            color: #E0A82B;
+            width: 22px;
+            font-size: 1rem;
+        }
+
+        hr {
+            margin: 2rem 0;
+            border: none;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #cbd5e1, transparent);
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Hero section -->
+<section class="hero">
+    <div class="container">
+        <div class="group-badge">
+            <i class="fas fa-users"></i> GROUP 1 | Filmon W/Gebriel · Blen Brhane · Zemen Taye
+        </div>
+        <h1>Hotel Management System</h1>
+        <div class="tagline">Automated · Streamlined · Smart Hospitality</div>
+        <p style="max-width: 650px; margin-top: 1rem; opacity: 0.9;">Web-based platform to eliminate manual errors, manage room bookings, and enhance customer experience — from reservations to real-time availability.</p>
+        <div style="margin-top: 2rem;">
+            <a href="#features" class="btn-outline-light" style="margin-right: 12px;"><i class="fas fa-chevron-down"></i> Explore Solution</a>
+            <a href="#timeline" class="btn-outline-light"><i class="far fa-calendar-alt"></i> Project Timeline</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    <!-- quick links / navigation card -->
+    <div class="nav-strip">
+        <div><i class="fas fa-hotel"></i> <strong>Hotel Mgmt System</strong> | Proposal 2026</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 0.3rem;">
+            <a href="#problem"><i class="fas fa-exclamation-triangle"></i> Problem</a>
+            <a href="#objectives"><i class="fas fa-bullseye"></i> Objectives</a>
+            <a href="#scope"><i class="fas fa-chart-line"></i> Scope</a>
+            <a href="#requirements"><i class="fas fa-list-check"></i> Req's</a>
+        </div>
+    </div>
+
+    <!-- INTRODUCTION -->
+    <div id="introduction">
+        <h2 class="section-title">1. Introduction</h2>
+        <div class="card" style="background: #ffffffea;">
+            <p style="font-size: 1.05rem; line-height: 1.6;">The <strong>Hotel Management System</strong> is a web-based application designed to automate and streamline hotel operations. Traditional manual methods for reservations, customer records, and booking administration are time-consuming and error-prone. Our platform enables customers to view available rooms, make reservations, and manage bookings online, while administrators oversee rooms, bookings, and customer information through a centralized dashboard. The result? Improved efficiency, reduced manual effort, and enhanced customer satisfaction.</p>
+        </div>
+    </div>
+
+    <!-- PROBLEM STATEMENT -->
+    <div id="problem">
+        <h2 class="section-title">2. Problem Statement</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-calendar-times"></i></div>
+                <h3>Booking Conflicts & Errors</h3>
+                <p>Manual handling leads to double-bookings, inaccurate records, and frustrated guests. Overbooked rooms or missed reservations damage reputation.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-tachometer-alt"></i></div>
+                <h3>Inefficient Operations</h3>
+                <p>Delayed customer service, scattered record-keeping, and lack of real-time availability slow down hotel staff and increase operational costs.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Unsustainable Growth</h3>
+                <p>As customer volumes grow, manual systems collapse. A digital transformation is essential for scalability and competitive advantage.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OBJECTIVES -->
+    <div id="objectives">
+        <h2 class="section-title">3. Objectives</h2>
+        <div class="card" style="margin-bottom: 1rem;">
+            <h3><i class="fas fa-flag-checkered"></i> General Objective</h3>
+            <p>To develop a web-based Hotel Management System that facilitates room booking and hotel administration for both customers and administrators.</p>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-user-plus card-icon"></i>
+                <h3>Customer Portal</h3>
+                <ul class="styled-list">
+                    <li><i class="fas fa-check-circle"></i> Registration & secure login</li>
+                    <li><i class="fas fa-bed"></i> View / search available rooms</li>
+                    <li><i class="fas fa-calendar-check"></i> Online reservations & manage bookings</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-user-shield card-icon"></i>
+                <h3>Admin Capabilities</h3>
+                <ul class="styled-list">
+                    <li><i class="fas fa-building"></i> Manage rooms & availability</li>
+                    <li><i class="fas fa-database"></i> Maintain customer records</li>
+                    <li><i class="fas fa-chart-simple"></i> Booking oversight & analytics</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-rocket card-icon"></i>
+                <h3>Operational Gains</h3>
+                <ul class="styled-list">
+                    <li><i class="fas fa-stopwatch"></i> Reduce manual work by 70%</li>
+                    <li><i class="fas fa-smile"></i> Intuitive interface for all users</li>
+                    <li><i class="fas fa-chart-line"></i> Improve hotel efficiency metrics</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCOPE -->
+    <div id="scope">
+        <h2 class="section-title">4. Scope of the Study</h2>
+        <div class="card" style="background: white;">
+            <p><strong>In scope:</strong> Room reservations, customer registration, room browsing, booking management, admin dashboard for room & customer handling, real-time availability. The system will be a fully functional prototype for hotel operations.</p>
+            <div class="badge" style="margin-top: 12px;"><i class="fas fa-clock"></i> Future releases (v2.0)</div>
+            <p>Online payment integration and third-party service connectors (OTAs, channel managers) are planned for subsequent phases — not in initial release.</p>
+        </div>
+    </div>
+
+    <!-- SIGNIFICANCE & LITERATURE (combined for elegance) -->
+    <div id="significance">
+        <h2 class="section-title">5. Significance & Literature</h2>
+        <div class="card-grid">
+            <div class="card">
+                <i class="fas fa-chart-pie card-icon"></i>
+                <h3>Impact & Benefits</h3>
+                <ul class="styled-list">
+                    <li><i class="fas fa-ban"></i> Reduced booking errors & double-reservations</li>
+                    <li><i class="fas fa-bolt"></i> Faster customer service & real-time updates</li>
+                    <li><i class="fas fa-archive"></i> Centralized accurate record-keeping</li>
+                    <li><i class="fas fa-expand-alt"></i> Scalable for business growth</li>
+                </ul>
+            </div>
+            <div class="card">
+                <i class="fas fa-book-open card-icon"></i>
+                <h3>Literature Insight</h3>
+                <p>Research shows automated hotel systems improve resource utilization and minimize human error. Modern web-based reservation platforms are no longer a luxury but a competitive necessity in the hospitality industry. Digital transformation drives guest satisfaction and revenue optimization.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- FUNCTIONAL & NON-FUNCTIONAL REQUIREMENTS -->
+    <div id="requirements">
+        <h2 class="section-title">6. Requirements</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3><i class="fas fa-microchip"></i> Functional Requirements</h3>
+                <ul class="styled-list">
+                    <li><i class="fas fa-check"></i> User registration & authentication</li>
+                    <li><i class="fas fa-check"></i> Customer login & profile management</li>
+                    <li><i class="fas fa-check"></i> Room listing & real-time availability</li>
+                    <li><i class="fas fa-check"></i> Booking & reservation management</li>
+                    <li><i class="fas fa-check"></i> Admin room / customer record management</li>
+                    <li><i class="fas fa-check"></i> Booking history + search/filter rooms</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3><i class="fas fa-shield-alt"></i> Non-Functional Requirements</h3>
+                <ul class="styled-list">
+                    <li><i class="fas fa-lock"></i> <strong>Security</strong> – protect customer & booking info</li>
+                    <li><i class="fas fa-infinity"></i> <strong>Reliability</strong> – uninterrupted operation</li>
+                    <li><i class="fas fa-gauge-high"></i> <strong>Performance</strong> – fast response times</li>
+                    <li><i class="fas fa-hand-peace"></i> <strong>Usability</strong> – intuitive, accessible UI</li>
+                    <li><i class="fas fa-code-branch"></i> <strong>Maintainability & Scalability</strong></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- METHODOLOGY section -->
+    <div>
+        <h2 class="section-title">Methodology</h2>
+        <div class="card" style="background: linear-gradient(105deg, #fff 0%, #F9FDFF 100%);">
+            <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify-content: space-between;">
+                <div><i class="fab fa-agile" style="font-size: 2.2rem; color: #E0A82B;"></i> <strong>Agile Software Development</strong> – iterative, continuous feedback</div>
+                <div><span class="badge">Requirement Analysis</span> → <span class="badge">System Design</span> → <span class="badge">Implementation</span> → <span class="badge">Testing</span> → <span class="badge">Deployment</span> → <span class="badge">Documentation</span></div>
+            </div>
+            <hr style="margin: 1rem 0;">
+            <p><i class="fas fa-sync-alt"></i> Sprints allow rapid adaptation to stakeholder feedback, ensuring the final product aligns perfectly with hotel management needs.</p>
+        </div>
+    </div>
+
+    <!-- TOOLS AND TECHNOLOGIES -->
+    <div>
+        <h2 class="section-title">Tools & Technologies</h2>
+        <div class="card">
+            <div class="tech-stack">
+                <span class="tech-item"><i class="fab fa-html5"></i> HTML5</span>
+                <span class="tech-item"><i class="fab fa-css3-alt"></i> CSS3 / Tailwind</span>
+                <span class="tech-item"><i class="fab fa-js"></i> JavaScript (ES6+)</span>
+                <span class="tech-item"><i class="fab fa-react"></i> React.js (Frontend)</span>
+                <span class="tech-item"><i class="fab fa-node-js"></i> Node.js / Express</span>
+                <span class="tech-item"><i class="fas fa-database"></i> MongoDB / PostgreSQL</span>
+                <span class="tech-item"><i class="fas fa-cloud-upload-alt"></i> JWT Auth</span>
+                <span class="tech-item"><i class="fab fa-git-alt"></i> Git & GitHub</span>
+            </div>
+            <p style="margin-top: 0.8rem;">➕ Agile tools: Jira, Slack, Figma for prototyping. Deployment on cloud platforms like Vercel + Heroku.</p>
+        </div>
+    </div>
+
+    <!-- TIMELINE SECTION (matches proposal visual) -->
+    <div id="timeline">
+        <h2 class="section-title">Timeline (5 weeks) – June 2026</h2>
+        <div class="timeline-wrapper">
+            <table class="timeline-table">
+                <thead>
+                    <tr><th>Activity</th><th>Week 1</th><th>Week 2</th><th>Week 3</th><th>Week 4</th><th>Week 5</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>Requirement Analysis</strong></td><td><span class="check">✓</span></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td><strong>System Design</strong></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td></td><td></td><td></td></tr>
+                    <tr><td><strong>Development (Core Modules)</strong></td><td></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td></td><td></td></tr>
+                    <tr><td><strong>Testing & QA</strong></td><td></td><td></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td><td></td></tr>
+                    <tr><td><strong>Documentation & Finalization</strong></td><td></td><td></td><td></td><td><span class="check">✓</span></td><td><span class="check">✓</span></td></tr>
+                    <tr><td><strong>Final Submission & Deployment</strong></td><td></td><td></td><td></td><td></td><td><span class="check">✓</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="badge" style="background:#fef3c7;">Iterative sprints ensure deliverable by end of Week 5 — working prototype plus full documentation</div>
+    </div>
+
+    <!-- BUDGET placeholder (lightweight mention) -->
+    <div>
+        <h2 class="section-title">Budget Estimate</h2>
+        <div class="card">
+            <p><i class="fas fa-coins"></i> <strong>Estimated development budget:</strong> Cloud hosting + domain ($120), design assets & premium libraries ($80), contingency & testing tools ($100). Total approx. <strong>$300</strong> for MVP phase. Labor costs not included (academic/non-profit initiative). All open-source technologies reduce overhead.</p>
+        </div>
+    </div>
+
+    <!-- DELIVERABLES -->
+    <div>
+        <h2 class="section-title">Deliverables</h2>
+        <div class="card-grid">
+            <div class="card"><i class="fas fa-laptop-code card-icon"></i><h3>Working Web App</h3><p>Fully functional hotel management demo with customer & admin panels (responsive).</p></div>
+            <div class="card"><i class="fas fa-file-alt card-icon"></i><h3>Technical Documentation</h3><p>User manual, architecture diagrams, API references.</p></div>
+            <div class="card"><i class="fab fa-github card-icon"></i><h3>Source Code Repository</h3><p>Codebase on GitHub with readme and deployment instructions.</p></div>
+            <div class="card"><i class="fas fa-chalkboard-user card-icon"></i><h3>Final Presentation</h3><p>Walkthrough & demo for stakeholders, plus test cases.</p></div>
+        </div>
+    </div>
+
+    <!-- interactive preview: mini demo of room search simulation (just UI concept) -->
+    <div style="margin: 2.5rem 0 1rem 0;">
+        <h2 class="section-title">✨ System Preview (Concept Demo)</h2>
+        <div class="card" style="background: #fefcf5;">
+            <p style="margin-bottom: 1rem;"><i class="fas fa-desktop"></i> <strong>Interactive mockup</strong> – Try room availability filter (simulated data)</p>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem;">
+                <input type="text" id="roomSearch" placeholder="Search room type (e.g., Deluxe, Suite)" style="flex:2; padding: 10px 16px; border-radius: 60px; border:1px solid #ccc; font-family: inherit;">
+                <button id="searchBtn" style="background:#1A4A5F; color:white; border:none; border-radius: 40px; padding: 0 1.5rem; font-weight: 600; cursor:pointer;"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div id="roomResults" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px,1fr)); gap: 1rem;">
+                <!-- dynamic room cards injected -->
+            </div>
+            <p class="badge" style="margin-top: 12px;"><i class="fas fa-info-circle"></i> Showcases real-time filtering — core functional requirement.</p>
+        </div>
+    </div>
+
+    <!-- CONCLUSION -->
+    <div>
+        <h2 class="section-title">Conclusion</h2>
+        <div class="card" style="background: #eef4f0;">
+            <p style="font-size: 1.05rem;">The Hotel Management System will deliver a modern, efficient solution for managing hotel operations. By automating reservations, room management, and customer records, the system significantly reduces manual effort and improves service quality. This project applies contemporary web technologies to real-world challenges in the hospitality industry, ensuring a scalable, secure, and user-friendly platform for both guests and hoteliers.</p>
+            <div style="margin-top: 1.4rem; font-style: italic;">— Submitted by Group 1, June 2026, fulfilling all proposal milestones.</div>
+        </div>
+    </div>
+    <hr>
+    <div style="text-align: center; margin: 2rem 0;">
+        <i class="fas fa-phone-alt"></i> Contact: project.hms.group1@university.edu &nbsp;|&nbsp; <i class="fas fa-globe"></i> Hotel Management System – Revolutionizing Hospitality
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <p>© 2026 Hotel Management System Proposal | Group 1: Filmon W/Gebriel, Blen Brhane, Zemen Taye</p>
+        <p style="margin-top: 8px; font-size: 0.8rem;"><i class="fas fa-code"></i> Agile methodology | Next phases: Payment integration & channel manager</p>
+    </div>
+</footer>
+
+<!-- simple javascript to simulate room filtering as per functional reqs -->
+<script>
+    const sampleRooms = [
+        { name: "Deluxe Ocean View", type: "Deluxe", price: "$189/night", available: true, beds: "King" },
+        { name: "Standard Twin Room", type: "Standard", price: "$109/night", available: true, beds: "Twin" },
+        { name: "Executive Suite", type: "Suite", price: "$299/night", available: true, beds: "King + Sofa" },
+        { name: "Family Connecting Room", type: "Family", price: "$259/night", available: false, beds: "2 Queens" },
+        { name: "Premium Deluxe", type: "Deluxe", price: "$219/night", available: true, beds: "King" },
+        { name: "Budget Single", type: "Standard", price: "$79/night", available: true, beds: "Single" },
+        { name: "Presidential Suite", type: "Suite", price: "$599/night", available: false, beds: "King + Lounge" },
+    ];
+
+    function renderRooms(filterText = "") {
+        const container = document.getElementById("roomResults");
+        if (!container) return;
+        const filtered = sampleRooms.filter(room => 
+            room.name.toLowerCase().includes(filterText.toLowerCase()) || 
+            room.type.toLowerCase().includes(filterText.toLowerCase())
+        );
+        if(filtered.length === 0){
+            container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:2rem;">✨ No rooms match "${filterText}" — try 'Deluxe' or 'Suite'</div>`;
+            return;
+        }
+        container.innerHTML = filtered.map(room => `
+            <div style="background: white; border-radius: 20px; padding: 1rem; border:1px solid #e2e8f0; transition:0.1s;">
+                <div style="display:flex; justify-content: space-between;"><strong style="font-size:1.1rem;">${room.name}</strong> <span class="badge">${room.type}</span></div>
+                <div style="margin: 8px 0;"><i class="fas fa-bed"></i> ${room.beds} &nbsp;|&nbsp; <i class="fas fa-tag"></i> ${room.price}</div>
+                <div><span style="background: ${room.available ? '#dff9e6' : '#ffe0db'}; padding: 3px 12px; border-radius: 30px; font-size:0.75rem;">${room.available ? '✓ Available' : '❌ Booked'}</span></div>
+                ${room.available ? `<button style="margin-top: 10px; background:#E0A82B; border:none; border-radius: 30px; padding:5px 12px; font-weight:600; cursor:default;">Reserve (demo)</button>` : `<button style="margin-top:10px; background:#ccc; border:none; border-radius:30px; padding:5px 12px;" disabled>Unavailable</button>`}
+            </div>
+        `).join('');
+    }
+
+    document.getElementById("searchBtn")?.addEventListener("click", function(){
+        const query = document.getElementById("roomSearch").value;
+        renderRooms(query);
+    });
+    document.getElementById("roomSearch")?.addEventListener("keyup", function(e){
+        if(e.key === "Enter"){
+            renderRooms(e.target.value);
+        }
+    });
+    // initial render
+    renderRooms("");
+</script>
+</body>
+</html>

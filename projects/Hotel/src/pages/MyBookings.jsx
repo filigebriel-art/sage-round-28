@@ -1,39 +1,84 @@
+import { useEffect,useState } from "react"
+
+import "../css/Mybookings.css";
+
 export default function MyBookings(){
 
-    const bookings =[
-        {
-        id:1,
-        room:"Luxury Room",
-        guests: 2,
-        checkIn:"2026-o6-10",
-        checkOut:"2026-06-15"
-        },
-        {
-            id:2,
-            room:"Family Room",
-            guests:4,
-            checkIn:"2026-07-01",
-            checkOut:"2026-07-05"
+    const [bookings, setBookings]=useState([])
 
+    useEffect(()=>{
+       
+        const savedBookings =
+        JSON.parse(localStorage.getItem("bookings")) ||[]
+
+        const myBookings= savedBookings.filter(
+            (booking)=>booking.userId ===currentUser.id
+        )
+
+        setBookings(myBookings)
+    },[])
+
+     
+
+    function cancelBooking(id){
+        const allBookings=
+        JSON.parse(localStorage.getItem("bookings"))|| []
+
+        const updatedAllBookings = allbookings.filter(
+            (booking)=>booking.id !==id
+        )
+        
+
+        localStorage.setItem(
+            "bookings",
+            JSON.stringify(updatedAllBookings)
+        )
+        setBookings(
+            updatedAllBookings.filter(
+                (booking)=>booking.userId ===currentUser.id
+            )
+        )
+    }
+
+    const currentUser =JSON.parse(
+            localStorage.getItem("currentUser")
+        )
+        if (!currentUser){
+            
+            return <h2>Please login to view your bookings.</h2>
         }
+    
 
-]
     return(
-        <div className="booking-card">
+        <div className="my-bookings">
             <h1>My Bookings</h1>
-            {bookings.map((booking)=>(
-                <div key={booking.id}>
 
-                    <h3>{booking.room}</h3>
 
-                    <p>Guests:{booking.guests}</p>
+            {bookings.length === 0 ?(
+                <p>No bookings found .</p>
+            ):(
+                <div className="booking-cards">
+                    {bookings.map((booking)=>(
+                        <div className="booking-card" key={booking.id}>
+                            <h3>{booking.name}</h3>
 
-                    <p>CheckIn: {booking.checkIn}</p>
+                            <p>Email: {booking.email}</p>
 
-                    <p>CheckOut:{booking.checkOut}</p>
-                    
-                    </div>
-            ))}
+                            <p>Guests:{booking.guests}</p>
+
+                            <p>Room ID: {booking.roomId}</p>
+
+                            <p>Check In: {booking.checkIn}</p>
+
+                            <p>Check Out: {booking.checkOut}</p>
+
+                            <button onClick={()=>cancelBooking(booking.id)
+
+                            }>Cancel Booking</button>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     )
 }

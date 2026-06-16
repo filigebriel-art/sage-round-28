@@ -38,6 +38,7 @@
     border:none;
     cursor:pointer;
     background-color: #D4AF37;
+    margin-top: 15px;
 }
 .rooms{
     display: flex;
@@ -87,4 +88,47 @@ object-fit: cover;
     margin: 20px;
     border-radius:10px;
 
+}
+
+.featured-rooms{
+    padding: 50px 20px;
+}
+
+
+.rooms-grid{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.features{
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.feature-grid{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 20px;
+}
+
+.feature-card{
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.testimonials{
+    padding: 20px;
+    text-align: center;
+
+}
+
+.testimonials-card{
+    margin: 20px auto;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 1opx;
 }

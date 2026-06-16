@@ -10,10 +10,15 @@ export default function Booking(){
     const {id}= useParams()
 
 
+    const currentUser =JSON.parse(
+        localStorage.getItem("currentUser")
+    )
+
     function handleBooking(e){
         e.preventDefault();
         const booking={
             id:Date.now(),
+            userId:currentUser.id,
             roomId:id,
             guests,
             name,

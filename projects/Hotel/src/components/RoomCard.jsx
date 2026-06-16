@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom"
-export default function RoomCard({id,name,price,image}){
+export default function RoomCard({id,name,price,image,isBooked}){
     return(
        < Link to={`/rooms/${id}`}>
     
@@ -10,6 +10,11 @@ export default function RoomCard({id,name,price,image}){
         <h2>{name}</h2>
 
         <p>${price} / Night</p>
+        
+          <p>
+                
+                {isBooked ? "Booked  ❌ " : "Available ✅"}
+            </p>
         <button>Book Now</button>
 
     </div>

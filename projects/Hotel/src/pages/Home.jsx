@@ -38,18 +38,73 @@ console.log(room1)
     <>
     <section className="hero">
         <h1>Welcome To Our Hotel</h1>
+
+
+
         <p>Experience luxury, comfort, and unforgettable stays.</p>
+
+
         <button>Explore Rooms</button>
     </section>
     
 
+    <section className="featured-rooms">
+        <h2> Featured Rooms</h2>
 
-    
+        <div className="rooms-grid">
+
+            {rooms.map((room)=>{
+                <RoomCard
+                key={room.id}
+                id={room.id}
+                name={room.name}
+                price={room.price}
+                image={room.image}
+                
+                />
+})}
+        </div>
+    </section>
+
+
+        <section className="features">
+            <h2>Why Choose Us?</h2>
+
+            <div className="feature-grid">
+                <div className="feature-card">
+
+                    <h3>Free WiFi</h3>
+                    <p>Fast internet throughout the hotel.</p>
+                </div>
+
+                <div className="feature-card">
+                    <h3>Swimming Pool</h3>
+                    <p>Relax and enjoy our luxury pool.</p>
+
+                </div>
+
+                <div className="feature-card">
+                    <h3>Restaurant</h3>
+                    <p>Delicious meals served daily.</p>
+                </div>
+
+                <div className="feature-card">
+                    <h3>24/7 Support</h3>
+                    <p>Always available to assist guests.</p>
+                </div>
+            </div>
+        </section>
+
+        <section className="testimonials">
+
+            <h2>What Our Guests Say</h2>
+
+            <div className="testimonials-card">
+                <p>"Excellent service and beautiful rooms"</p>
+                <h4>-Sarah</h4>
+            </div>
+        </section>
         
-
-
-
-   
     </>
     )
 }

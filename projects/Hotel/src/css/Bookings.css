@@ -28,3 +28,21 @@
 .bookings-table tr:nth-child(even){
     background: #fafafa;
 }
+
+.bookings-table button{
+     background: crimson;
+     color: white;
+     border: none;
+     padding: 8px 12px;
+     border-radius: 5px;
+     cursor: pointer;
+}
+
+.bookings-table button:hover{
+    opacity: 0.9;
+}
+
+button:disabled{
+    background: grey;
+    cursor: not-allowed;
+}

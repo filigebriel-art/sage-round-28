@@ -9,7 +9,7 @@ import Booking from "./pages/Booking";
 import MyBookings from "./pages/MyBookings";
 import Admin from "./pages/Admin";
 import Bookings from "./pages/Bookings";
-
+import ProtectedRoute from "./components/ProtectedRoute";
 export default function App(){
   return(
     <BrowserRouter>
@@ -32,7 +32,13 @@ export default function App(){
 
       <Route path="my-bookings" element={<MyBookings/>} />
 
-      <Route path="admin" element={<Admin/>}/>
+      <Route
+       path="/admin" 
+       element={<ProtectedRoute>
+        <Admin/>
+        </ProtectedRoute>
+        }
+        />
       <Route path="/bookings" element={<Bookings/>}/>
     </Route>
 

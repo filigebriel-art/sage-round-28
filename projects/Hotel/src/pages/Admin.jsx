@@ -96,6 +96,11 @@ export default function Admin() {
   const totalRevenue =
   rooms.reduce((total,room)=>total + room.price, 0)
 
+
+
+
+  
+
   return (
     <>
       {editingId !==null && (
