@@ -18,6 +18,12 @@ let books=[
     }
 ]
 
+
+app.use((req,res,next)=>{
+    console.log(req.method)
+    console.log(req.url)
+    next()
+})
 app.get('/books',(req,res)=>{
     return res.status(200).json(books)
 })
@@ -29,7 +35,24 @@ app.post('/books', (req,res)=>{
     return res.status(201).json(books)
 })
 
+app.put('/books/:id',(req,res)=>{
+    const book =books.find((b)=>b.id == req.params.id)
+    book.title= req.body.title
+    book.author=req.body.author
+    book.price=req.body.price
 
-app.listen(30000,()=>{
+    return res.status(200).json(book)
+})
+app.delete('/books/:id',(req,res)=>{
+    books=books.filter(b=>(b.id !=req.params.id))
+    return res.status(200).json({message:"book deleted"})
+})
+
+
+app.use((req,res,next)=>{
+    return res.status(404).json({message:"route not found"})
+})
+
+app.listen(3000,()=>{
     console.log("server started at port 3000")
 })

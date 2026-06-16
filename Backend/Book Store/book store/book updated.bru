@@ -1,0 +1,24 @@
+meta {
+  name: book updated
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://localhost:3000/books/6
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "title":"atomic",
+    "author":"edson",
+    "price":"$300"
+  }
+}
+
+settings {
+  encodeUrl: true
+  timeout: 0
+}
