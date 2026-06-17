@@ -1,0 +1,21 @@
+info:
+  name: update book
+  type: http
+  seq: 3
+
+http:
+  method: PUT
+  url: http://localhost:3000/books/6a326beb9a88e1af015630c5
+  body:
+    type: json
+    data: |-
+      {
+        "title":"atomH"
+      }
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
