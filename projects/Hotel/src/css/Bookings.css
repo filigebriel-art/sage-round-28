@@ -46,3 +46,8 @@ button:disabled{
     background: grey;
     cursor: not-allowed;
 }
+
+
+.table-wrapper{
+    overflow-x: auto;
+}

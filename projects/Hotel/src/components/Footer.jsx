@@ -7,12 +7,17 @@ export default function Footer(){
 
     
     < footer className="footer">
-        <h3>Luxury Hotel</h3>
+        <h2>🏨 Grand Palace Hotel</h2>
+        <p> 📍 Addis Abeba, Ethiopia</p>
 
         <p>Email:filigebriel@gmail.com</p>
-        <p>Phone: +251 900 000 000</p>
+        <p>📞  +251 900 000 000</p>
+        <p>✉ info@grandpalacehotel.com</p>
+<div>
+        <p>© 2026 Grand Palace Hotel.  All Rights Reserved</p>
 
-        <p>© 2026 All Rights Reserved</p>
+
+</div>
     </footer>
     
     

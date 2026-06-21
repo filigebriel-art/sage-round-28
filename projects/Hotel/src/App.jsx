@@ -10,6 +10,10 @@ import MyBookings from "./pages/MyBookings";
 import Admin from "./pages/Admin";
 import Bookings from "./pages/Bookings";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Profile from "./pages/Profile";
+import Favorites from "./pages/Favorites";
+
+import AdminProtectedRoute from "./components/AdminProtectedRoute";
 export default function App(){
   return(
     <BrowserRouter>
@@ -24,6 +28,12 @@ export default function App(){
 
       <Route path="login" element={<Login/>}/>
 
+      <Route path="/profile" element={
+       
+       <ProtectedRoute>
+          <Profile/>
+        </ProtectedRoute>}/>
+
       <Route path="register" element={<Register/>}/>
 
       <Route path="rooms/:id" element={<RoomDetails/>}/>
@@ -31,14 +41,24 @@ export default function App(){
       <Route path="book/:id" element={<Booking/>}/>
 
       <Route path="my-bookings" element={<MyBookings/>} />
+      <Route
+         path="/favorites"
+         element={
+        <ProtectedRoute>
+        <Favorites />
+       </ProtectedRoute>
+  }
+/>
 
       <Route
        path="/admin" 
-       element={<ProtectedRoute>
+       element={<AdminProtectedRoute>
         <Admin/>
-        </ProtectedRoute>
+        </AdminProtectedRoute>
         }
         />
+
+      
       <Route path="/bookings" element={<Bookings/>}/>
     </Route>
 

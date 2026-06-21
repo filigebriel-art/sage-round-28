@@ -1,5 +1,7 @@
 import{useParams}from "react-router-dom"
 import { useState } from "react"
+import"../css/Form.css"
+
 export default function Booking(){
     const[name,setName]=useState("")
     const[email,setEmail]=useState("")

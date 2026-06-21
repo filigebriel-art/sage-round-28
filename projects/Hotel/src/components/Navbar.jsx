@@ -2,7 +2,7 @@
 
 
 import{Link}from "react-router-dom"
-
+import"../css/Navbar.css"
 export default function Navbar(){
 
     const currentUser=JSON.parse(
@@ -21,7 +21,8 @@ export default function Navbar(){
 
     return(
     <nav  className="navbar">
-        <h2>Hotel</h2>
+        <h2 className="logo">
+            🏨 LuxuryHotel</h2>
 
        
         <ul>
@@ -36,6 +37,13 @@ export default function Navbar(){
             <li>
                 <Link to="my-bookings">My Booking</Link>
             </li>
+
+           
+
+            
+
+
+
             
 
 
@@ -52,12 +60,31 @@ export default function Navbar(){
 
                 {currentUser ? (
                     <>
+
+
+                     <li>
+                <Link to="/profile">Profile</Link>
+                    </li>
+
+
+                     <li>
+                <Link to="/favorites">
+                Favorites ❤️
+                 </Link>
+            </li>
+
                     <span>welcome,  {currentUser.name}</span>
+
+
 
                     <li>
                     <button onClick={logout}>Logout</button>
 
                     </li>
+
+                             
+           
+           
                     </>
                 ):(
                     <>

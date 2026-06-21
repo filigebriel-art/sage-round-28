@@ -55,6 +55,7 @@ export default function Bookings(){
             {bookings.length === 0 ? (
                 <p>No bookings available.</p>
             ):(
+                <div className="table-wrapper">
                 <table className="bookings-table">
                     <thead>
                         <tr>
@@ -99,6 +100,7 @@ export default function Bookings(){
                         })}
                     </tbody>
                 </table>
+                </div>
 
             )}
             </div>

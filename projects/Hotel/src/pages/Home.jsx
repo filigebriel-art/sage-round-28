@@ -37,14 +37,17 @@ console.log(room1)
     return(
     <>
     <section className="hero">
-        <h1>Welcome To Our Hotel</h1>
+        <div className="hero-overlay">
+        <h1>Welcome To Grand Palace Hotel</h1>
 
 
 
-        <p>Experience luxury, comfort, and unforgettable stays.</p>
+        <p>Experience luxury, comfort, and unforgettable memories.</p>
 
 
         <button>Explore Rooms</button>
+
+        </div>
     </section>
     
 
@@ -53,7 +56,7 @@ console.log(room1)
 
         <div className="rooms-grid">
 
-            {rooms.map((room)=>{
+            {rooms.slice(0, 3).map((room)=>(
                 <RoomCard
                 key={room.id}
                 id={room.id}
@@ -62,35 +65,35 @@ console.log(room1)
                 image={room.image}
                 
                 />
-})}
+))}
         </div>
     </section>
 
 
         <section className="features">
-            <h2>Why Choose Us?</h2>
+            <h2>Why Choose Grand Palace Hotel?</h2>
 
             <div className="feature-grid">
                 <div className="feature-card">
 
-                    <h3>Free WiFi</h3>
-                    <p>Fast internet throughout the hotel.</p>
+                    <h3>📶Free WiFi</h3>
+                    <p>High-speed internet available  throughout the hotel.</p>
                 </div>
 
                 <div className="feature-card">
-                    <h3>Swimming Pool</h3>
-                    <p>Relax and enjoy our luxury pool.</p>
+                    <h3>🏊 Swimming Pool</h3>
+                    <p>Relax and enjoy our luxury swimming pool.</p>
 
                 </div>
 
                 <div className="feature-card">
-                    <h3>Restaurant</h3>
-                    <p>Delicious meals served daily.</p>
+                    <h3>🍽️ Restaurant</h3>
+                    <p>Enjoy delicious local and international cuisine.</p>
                 </div>
 
                 <div className="feature-card">
-                    <h3>24/7 Support</h3>
-                    <p>Always available to assist guests.</p>
+                    <h3>🕒 24/7 Service</h3>
+                    <p>Our staff is always available to assist you.</p>
                 </div>
             </div>
         </section>
@@ -98,10 +101,39 @@ console.log(room1)
         <section className="testimonials">
 
             <h2>What Our Guests Say</h2>
+             
+             <div className="testimonial-container">
+            <div className="testimonials-card">
+                <p>
+                    ⭐️⭐️⭐️⭐️⭐️
+
+                </p>
+                <p>"The rooms were beautiful and the staff were very friendly."</p>
+
+                <h4>-John Smith</h4>
+            </div>
+
 
             <div className="testimonials-card">
-                <p>"Excellent service and beautiful rooms"</p>
-                <h4>-Sarah</h4>
+                <p>
+                    ⭐️⭐️⭐️⭐️⭐️
+
+                </p>
+                
+                <p>
+                    "Amazing Service and delicious food, Highly recommended!"
+                </p>
+                <h4>-Sarah Johson</h4>
+
+            </div>
+
+            <div className="testimonials-card">
+                <p>⭐️⭐️⭐️⭐️⭐️</p>
+                <p>"One of the best hotel Experience I've ever had</p>
+                <h4>-Michael Brown</h4>
+
+            </div>
+            
             </div>
         </section>
         

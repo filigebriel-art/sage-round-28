@@ -1,7 +1,29 @@
 .footer{
-    background: #222;
+    width: 100%;
+    background: #0F172A;
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 40px 20px;
     margin-top: 50px;
+    
+    
+}
+.footer h2{
+    color: #fbbf24;
+    margin-bottom: 15px;
+}
+
+.footer p{
+    margin: 8px 0;
+}
+
+.footer-bottom{
+    margin-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+@media(max-width:768px){
+    .footer{
+        padding:30px 15px
+    }
 }
