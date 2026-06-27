@@ -1,26 +1,45 @@
 
 
 
-import{Link}from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { useEffect, useState } from "react"
 import"../css/Navbar.css"
 
+function getCurrentUser() {
+    try {
+        const storedUser = localStorage.getItem("currentUser")
+        return storedUser ? JSON.parse(storedUser) : null
+    } catch {
+        return null
+    }
+}
 
 export default function Navbar(){
+    const [currentUser, setCurrentUser] = useState(getCurrentUser)
+    const navigate = useNavigate()
 
-    const currentUser=JSON.parse(
-        localStorage.getItem("currentUser")
-    )
-    console.log(currentUser)
+    useEffect(() => {
+        const handleAuthChange = () => {
+            setCurrentUser(getCurrentUser())
+        }
 
+        window.addEventListener("storage", handleAuthChange)
+        window.addEventListener("auth-change", handleAuthChange)
 
+        return () => {
+            window.removeEventListener("storage", handleAuthChange)
+            window.removeEventListener("auth-change", handleAuthChange)
+        }
+    }, [])
 
    function logout() {
     localStorage.removeItem("currentUser");
     localStorage.removeItem("token");
     sessionStorage.removeItem("token");
     localStorage.removeItem("rememberedEmail");
-
-    window.location.href = "/login";
+    setCurrentUser(null)
+    window.dispatchEvent(new Event("auth-change"))
+    navigate("/login")
 }
     return(
     <nav  className="navbar">
@@ -73,6 +92,9 @@ export default function Navbar(){
                  </Link>
             </li>
 
+
+            
+
                     <span>welcome,  {currentUser.name}</span>
 
 
@@ -98,16 +120,6 @@ export default function Navbar(){
                 )}
 
 
-                {currentUser?.role === "admin" && (
-    <>
-        <li>
-            <Link to="/admin">Admin</Link>
-        </li>
-        <li>
-            <Link to="/admin/gallery">Gallery</Link>
-        </li>
-    </>
-)}
         </ul>
     </nav>
     )

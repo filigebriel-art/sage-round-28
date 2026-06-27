@@ -38,13 +38,13 @@ app.use("/api/bookings",bookingRoutes)
 
 app.use("/api/reviews",reviewRoutes)
 
-app.use("/uploads",express.static("uploads"))
+app.use("/uploads", express.static(path.join(__dirname, "uploads")))
 
 
 
 
 
-app.use('/api', galleryRoutes);
+
 
 
 

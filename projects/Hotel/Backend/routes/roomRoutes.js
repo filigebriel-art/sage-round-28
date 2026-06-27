@@ -26,6 +26,7 @@ router.post(
 router.put(
     "/:id",
     protect,
+    upload.single("image"),
     updateRoom
 );
 

@@ -5,6 +5,11 @@ import Room from "../models/Room.js";
 
 
 
+const getImageUrl = (req, file) => {
+    if (!file) return "";
+    return `${req.protocol}://${req.get("host")}/uploads/${file.filename}`;
+};
+
 export const getRooms = async (req,res)=>{
     try{
         const rooms= await Room.find()
@@ -28,9 +33,7 @@ export const createRoom = async (req, res) => {
 
             description: req.body.description,
 
-            image: req.file
-                ? `/uploads/${req.file.filename}`
-                : ""
+            image: getImageUrl(req, req.file)
 
         });
 
@@ -68,10 +71,19 @@ export const deleteRoom = async (req,res) => {
 
 export const updateRoom = async (req,res)=>{
     try{
+        const updateData = { ...req.body };
+
+        if (req.file) {
+            updateData.image = getImageUrl(req, req.file);
+        }
+
+        if (req.body.price) {
+            updateData.price = Number(req.body.price);
+        }
 
         const room = await Room.findByIdAndUpdate(
-            req.params.id, 
-            req.body, 
+            req.params.id,
+            updateData,
             {new:true}
         )
 

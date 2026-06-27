@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/RoomCard.css";
 
 export default function RoomCard({
@@ -7,8 +7,10 @@ export default function RoomCard({
     price,
     image,
     isBooked = false,
-    rating = 0
+    rating = 0,
+    linkTo = null
 }) {
+    const navigate = useNavigate();
 
     function isInFavorites() {
         const favorites = JSON.parse(localStorage.getItem("favorites")) || [];
@@ -51,6 +53,14 @@ export default function RoomCard({
     function handleBookClick(e) {
         e.preventDefault();
         e.stopPropagation();
+
+        const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (!currentUser) {
+            navigate("/login");
+        } else {
+            navigate(`/book/${id}`);
+        }
     }
 
     const renderRating = () => {
@@ -75,7 +85,7 @@ export default function RoomCard({
 
     return (
         <div className="room-card">
-            <Link to={`/rooms/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+            <Link to={linkTo || `/rooms/${id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div className="room-image-container">
                     <img
                         src={image}

@@ -3,7 +3,10 @@ import "../css/Home.css";
 import room1 from"../assets/room1.jpg";
 import family from"../assets/family.jpg"
 import luxury from"../assets/luxury.jpg"
+import { useNavigate } from "react-router-dom";
+
 export default function Home(){
+    const navigate = useNavigate();
 
 console.log(room1)
     const rooms=[
@@ -45,7 +48,7 @@ console.log(room1)
         <p>Experience luxury, comfort, and unforgettable memories.</p>
 
 
-        <button>Explore Rooms</button>
+        <button onClick={() => navigate("/rooms")}>Explore Rooms</button>
 
         </div>
     </section>
@@ -63,6 +66,7 @@ console.log(room1)
                 name={room.name}
                 price={room.price}
                 image={room.image}
+                linkTo="/login"
                 
                 />
 ))}

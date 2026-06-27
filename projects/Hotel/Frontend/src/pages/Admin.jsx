@@ -1,39 +1,17 @@
 import { useState, useEffect } from "react";
 import "../css/Admin.css";
-import { Link } from "react-router-dom";
 
 export default function Admin() {
     const [rooms, setRooms] = useState([])
-    const [roomName, setRoomName] = useState("");
-    const [price, setPrice] = useState("");
-    const [image, setImage] = useState(null);
-    const [imagePreview, setImagePreview] = useState(null); // Add image preview
     const [editingId, setEditingId] = useState(null);
     const [editName, setEditName] = useState("");
     const [editPrice, setEditPrice] = useState("");
     const [editImage, setEditImage] = useState("");
     const [totalUsers, setTotalUsers] = useState(0)
-    const [searchRoom, setSearchRoom] = useState("")
     const [bookings, setBookings] = useState([])
-    const [description, setDescription] = useState("")
     const [editDescription, setEditDescription] = useState("")
     const [totalBookings, setTotalBookings] = useState(0)
     const [loading, setLoading] = useState(true)
-
-    
-
-    // Image preview when selecting file
-    useEffect(() => {
-        if (image) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                setImagePreview(reader.result);
-            };
-            reader.readAsDataURL(image);
-        } else {
-            setImagePreview(null);
-        }
-    }, [image]);
 
     useEffect(() => {
         fetch("http://localhost:5000/api/users")
@@ -59,52 +37,6 @@ export default function Admin() {
             })
             .catch(err => console.log(err))
     }, [])
-
-    async function addRoom() {
-        const token = localStorage.getItem("token") || sessionStorage.getItem("token");
-
-        if (!roomName || !price || !image) {
-            alert("Please fill all fields");
-            return;
-        }
-
-        try {
-            const formData = new FormData();
-            formData.append("name", roomName);
-            formData.append("price", price);
-            formData.append("description", description);
-            formData.append("image", image);
-
-            const response = await fetch(
-                "http://localhost:5000/api/rooms",
-                {
-                    method: "POST",
-                    headers: {
-                        Authorization: `Bearer ${token}`
-                    },
-                    body: formData
-                }
-            );
-
-            if (!response.ok) {
-                throw new Error("Failed to add room");
-            }
-
-            const newRoom = await response.json()
-            console.log("New room added:", newRoom) // Debug log
-            
-            setRooms([...rooms, newRoom])
-            setRoomName("")
-            setPrice("")
-            setImage(null)
-            setImagePreview(null) // Clear preview
-            setDescription("")
-            alert("Room added successfully!")
-        } catch (error) {
-            console.log(error)
-            alert("Failed to add room")
-        }
-    }
 
     async function deleteRoom(id) {
         const token = localStorage.getItem("token") || sessionStorage.getItem("token");
@@ -208,9 +140,8 @@ export default function Admin() {
         !bookings.some(booking => booking.roomId === room._id)
     ).length
 
-    const filteredAdminRooms = rooms.filter(room =>
-        (room.name || "").toLowerCase().includes(searchRoom.toLowerCase())
-    )
+    const recentBookings = [...bookings].slice(0, 5)
+    const recentRooms = [...rooms].slice(0, 5)
 
     if (loading) {
         return <div className="loading">Loading admin dashboard...</div>
@@ -288,101 +219,42 @@ export default function Admin() {
                     </div>
                 </div>
 
-                <div className="admin-actions">
-                    <Link to="/bookings">
-                        <button className="admin-btn">View Bookings</button>
-                    </Link>
-
-                    <Link to="/admin/users">
-                        <button className="admin-btn">Manage Users</button>
-                    </Link>
-                </div>
-
-                <div className="add-room-form">
-                    <h2>Add New Room</h2>
-
-                    <input
-                        type="file"
-                        accept="image/*"
-                        onChange={(e) => setImage(e.target.files[0])}
-                    />
-
-                    {/* Image preview */}
-                    {imagePreview && (
-                        <div className="image-preview">
-                            <img src={imagePreview} alt="Preview" width="200" />
+                <div className="dashboard-grid">
+                    <div className="dashboard-card">
+                        <h3>Recent Bookings</h3>
+                        <div className="table-wrapper">
+                            <table className="dashboard-table">
+                                <thead>
+                                    <tr>
+                                        <th>Guest</th>
+                                        <th>Room</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {recentBookings.map((booking) => (
+                                        <tr key={booking._id}>
+                                            <td>{booking.name}</td>
+                                            <td>{booking.roomId}</td>
+                                            <td><span className="status-pill">Booked</span></td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
                         </div>
-                    )}
+                    </div>
 
-                    <input
-                        type="text"
-                        placeholder="Room Name"
-                        value={roomName}
-                        onChange={(e) => setRoomName(e.target.value)}
-                    />
-
-                    <input
-                        type="number"
-                        placeholder="Price"
-                        value={price}
-                        onChange={(e) => setPrice(e.target.value)}
-                    />
-
-                    <textarea
-                        placeholder="Room Description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                    />
-
-                    <input
-                        type="text"
-                        placeholder="Search rooms..."
-                        value={searchRoom}
-                        onChange={(e) => setSearchRoom(e.target.value)}
-                    />
-
-                    <button onClick={addRoom}>
-                        Add Room
-                    </button>
-                </div>
-
-                <div className="rooms-grid">
-                    {filteredAdminRooms.length === 0 ? (
-                        <p className="no-rooms">No rooms found</p>
-                    ) : (
-                        filteredAdminRooms.map((room) => (
-                            <div className="admin-room" key={room._id}>
-                                <img
-                                    src={getImageUrl(room.image)}
-                                    alt={room.name}
-                                    className="admin-room-image"
-                                    onError={(e) => {
-                                        e.target.src = 'https://via.placeholder.com/300x200?text=No+Image';
-                                    }}
-                                />
-
-                                <h3>{room.name}</h3>
-                                <p>${room.price} / Night</p>
-                                <p className="room-description">{room.description}</p>
-
-                                <div className="admin-buttons">
-                                    <button
-                                        className="edit-btn"
-                                        onClick={() => editRoom(room)}
-                                    >
-                                        Edit
-                                    </button>
-
-                                    <button
-                                        className="delete-btn"
-                                        onClick={() => deleteRoom(room._id)}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        ))
-                    )}
+                    <div className="dashboard-card">
+                        <h3>Recent Rooms</h3>
+                        <ul className="recent-list">
+                            {recentRooms.map((room) => (
+                                <li key={room._id}>
+                                    <span>{room.name}</span>
+                                    <strong>${room.price}</strong>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </>

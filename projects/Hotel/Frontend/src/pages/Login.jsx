@@ -76,8 +76,9 @@ export default function Login(){
 
                 localStorage.setItem("currentUser", JSON.stringify(data.user));
                 
-                // Notify other tabs
+                // Notify other tabs and update navbar immediately
                 window.dispatchEvent(new Event("storage"));
+                window.dispatchEvent(new Event("auth-change"));
                 
                 alert("Login successful!");
                 navigate("/");
